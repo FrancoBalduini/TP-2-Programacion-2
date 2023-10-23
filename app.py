@@ -40,15 +40,7 @@ while True:
             print("Opción Inválida. Intente Nuevamente.")
 
     elif opcion == 3:
-        if procesos.lista_cursos_campus:
-            longitud = max(len(curso.nombre) for curso in procesos.lista_cursos_campus)
-            for curso in sorted(
-                procesos.lista_cursos_campus, key=lambda curso: curso.nombre):
-                
-                nombre_curso = curso.nombre.ljust(longitud)
-                print(
-                    f"Materia: {nombre_curso} Carrera: Tecnicatura Universitaria en Programación")
-            print("")
+        if "completar ver cursos"
 
         else:
             print("Todavia no hay cursos disponibles en el campus virtual.\n")
