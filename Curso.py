@@ -2,7 +2,7 @@ import random
 import string
 
 class Curso:
-    def __init__(self, nombre, contrasenia_matriculacion):
+    def __init__(self, nombre):
         self.__nombre = nombre
         self.__contrasenia_matriculacion = self.__generador_contrasenia()
 
@@ -23,7 +23,16 @@ class Curso:
 
     @staticmethod
     def __generador_contrasenia() -> str:
-        longitud = 6
-        caracteres = string.letras_ascii + string.digitos
+        longitud = 8
+        caracteres = string.ascii_letters + string.digits
         return ''.join(random.choices(caracteres, k=longitud))
     
+
+cursos_totales = []
+
+curso = Curso("Programacion 1")
+cursos_totales.append(curso)
+curso = Curso("Programacion 2")
+cursos_totales.append(curso)
+curso= Curso("Ingles 1")
+cursos_totales.append(curso)

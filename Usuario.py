@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-class Usuario(ABC):
+class Usuario(ABC): 
     def __init__(self, nombre, apellido, email, contrasenia):
         self._nombre = nombre
         self._apellido = apellido
@@ -44,6 +44,6 @@ class Usuario(ABC):
     def email(self, contrasenia_cambiada):
         self._contrasenia = contrasenia_cambiada
     
-    def validar_credenciales(self, email, contrasenia):
+    def validar_credenciales(self, email, contrasenia) -> bool: 
         return self.email == email and self.contrasenia == contrasenia
     
