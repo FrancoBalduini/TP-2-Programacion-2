@@ -77,3 +77,24 @@ class Profesor(Usuario):
 
 
 
+profesores = []
+
+
+alumnos = []
+
+
+cursos= []
+
+
+profesor = Profesor("Dario", "Martinez", "martinesdario@gmail.com", "dariomartinez", "ingeniero", 1987)
+profesores.append(profesor)
+
+
+alumno1 = Estudiante("Lucas", "Blondel", "blondel@gmail.com", "lblondel123", 498453, 2023)
+alumnos.append(alumno1)
+
+
+alumno2 = Estudiante("Matias", "Gimenez", "matigimenez@gmail.com", "maticrack1234", 98564, 2023)
+alumnos.append(alumno2)
+
+
