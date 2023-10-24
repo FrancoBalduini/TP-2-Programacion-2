@@ -35,13 +35,20 @@ while True:
                 if opcion_Dos == 1:
                     i = 0
                     
-                    for curso in cursos_totales:
-                        i += 1
-                        print(f"{i} {curso.nombre}")
+                    if cursos_totales:
+                        for curso in cursos_totales:
+                            i += 1
+                            print(f"{i} {curso.nombre}")
 
-                    curso_selec = int(input("Ingrese el numero del curso al que desea matricularse: "))
+                    banderaWh = False
+                    while not banderaWh:
+                        curso_selec = int(input("Ingrese el numero del curso del cual desea matricularse: "))
+                        if curso_selec <= i and curso_selec > 0:
+                            banderaWh = True
+                        else:
+                            print("Ingrese una opcion correcta")
                     curso_selec -= 1
-                    if not cursos_totales[curso_selec] in alumno.mis_cursos:
+                    if not cursos_totales[curso_selec] in alumnos[indice].mis_cursos:
                         clave_curso = input("Ingrese la contraseña de dicho curso: ")
                         alumno.matricularse_en_curso(clave_curso, indice, curso_selec)
                     else:
@@ -125,6 +132,3 @@ while True:
         break
     else:
         print("Opción inválida.")
-
-    
-
