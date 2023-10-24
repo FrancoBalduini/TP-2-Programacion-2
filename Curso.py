@@ -25,7 +25,7 @@ class Curso:
     def __generador_contrasenia() -> str:
         longitud = 8
         caracteres = string.ascii_letters + string.digits
-        return ''.join(random.choices(caracteres, k=longitud))
+        return "".join(random.choices(caracteres, k=longitud))
     
 
 cursos_totales = []

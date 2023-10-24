@@ -3,6 +3,7 @@ from Curso import *
 
 
 while True:
+    indice = 0
     print("1- Ingresar Alumno.")
     print("2- Ingresar Profesor.")
     print("3- Ver cursos.")
@@ -14,12 +15,14 @@ while True:
         mail = input("Ingrese su Email: ")
         contra = input("Ingrese la contraseña: ")
         for alumn in alumnos:
+            indice +=1
             bandera = alumn.validar_credenciales(mail, contra)
 
             if bandera:
                 break
 
         if bandera:
+            indice -= 1
             opcion_Dos = 0
             while opcion_Dos !=3 :
                 print("1- Matricularse a un curso.")
@@ -38,16 +41,16 @@ while True:
                     curso_selec = int(input("Ingrese el numero del curso al que desea matricularse: "))
                     curso_selec -= 1
                     if not cursos_totales[curso_selec] in alumno.mis_cursos:
-                        nombre_curso = cursos_totales[curso_selec].nombre 
                         clave_curso = input("Ingrese la contraseña de dicho curso: ")
-                        alumno.matricularse_en_curso(nombre_curso, clave_curso)
+                        alumno.matricularse_en_curso(clave_curso, indice, curso_selec)
                     else:
                         print("Ya se encuentra matriculado a ese curso.")
 
                 elif opcion_Dos == 2:
                     
                     i = 0
-                    for curso in alumno.mis_cursos:
+                    print("Cursos del alumno:")
+                    for curso in alumnos[indice].mis_cursos:
                         i += 1
                         print(f"{i} {curso.nombre}")
                 #no esta la parte de pedir la opcion, sentimos que no tiene sentido mostrar la lista con los nombres para dsp volverle a decir el nombre
@@ -61,16 +64,14 @@ while True:
         mail = input("Ingrese su Email: ")
         contra = input("Ingrese la contraseña: ")
         for prof in profesores:
-            print(prof.nombre)
-            print(prof.apellido)
-            print(prof.email)
-            print(prof.contrasenia)
-
+            indice +=1
             bandera = prof.validar_credenciales(mail, contra)
 
             if bandera:
                 break
+
         if bandera:
+            indice -= 1
             opcion_Dos = 0
             while opcion_Dos !=3:
                 print("1- Dictar curso.")
@@ -82,12 +83,12 @@ while True:
                 if opcion_Dos == 1:
                     curso = Curso(str(input("Ingrese el nombre del nuevo curso: ")))
                     cursos_totales.append(curso)
-                    profesor.mis_cursos.append(curso)
+                    profesores[indice].mis_cursos.append(curso)
                     print(f"Nombre: {curso.nombre} \nContraseña: {curso.contrasenia_matriculacion}")
                 elif opcion_Dos == 2:
                     i = 0
 
-                    for curso in profesor.mis_cursos:
+                    for curso in profesores[indice].mis_cursos:
                         i += 1
                         print(f"{i} {curso.nombre}")
                     
@@ -99,16 +100,17 @@ while True:
                         else:
                             print("Ingrese una opcion correcta")
                     curso_selec -= 1
-                    print(f"Nombre: {profesor.mis_cursos[curso_selec].nombre}\nContraseña: {profesor.mis_cursos[curso_selec].contrasenia_matriculacion}")
+                    print(f"Nombre: {profesores[indice].mis_cursos[curso_selec].nombre}\nContraseña: {profesores[indice].mis_cursos[curso_selec].contrasenia_matriculacion}")
 
         else:
             print("Opción Inválida. Intente Nuevamente.")
 
     elif opcion == 3:
-        ###if "completar ver cursos"
-
-       # else:
-            print("Todavia no hay cursos disponibles en el campus virtual.\n")
+        if cursos_totales:
+            for cursos in cursos_totales:
+                print(f"Materia: {cursos.nombre} Carrera: Tecnicatura Universitaria en Programación")
+        else:
+            print("Aun no hay cursos ingresados")
 
     elif opcion == 4:
         break

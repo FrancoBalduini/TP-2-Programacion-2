@@ -1,5 +1,5 @@
 from Usuario import Usuario
-from Curso import Curso
+from Curso import *
 
 class Estudiante(Usuario):
     def __init__(self, nombre, apellido, email, contrasenia, legajo, anio_incripcion):
@@ -29,15 +29,16 @@ class Estudiante(Usuario):
     def anio_inscripcion(self, anio_inscripcion_cambiado):
         self.__anio_inscripcion = anio_inscripcion_cambiado 
 
-    def matricularse_en_curso(self, curso, contrasenia_matriculacion):
-            if curso not in self.mis_cursos and curso.contrasenia_matriculacion == contrasenia_matriculacion:
-                self.mi_cursos.append(curso)
-                return True
-            else: return False
+    def matricularse_en_curso(self, contrasenia_ing, indice, curso_selec):
+    
+        if cursos_totales[curso_selec].contrasenia_matriculacion == contrasenia_ing:
+            alumnos[indice].mis_cursos.append(cursos_totales[curso_selec])
+            print("Matriculado correctamente")
+            return True
+        else:
+            print("Contraseña de curso incorrecta.")
+            return False
 
-
-    def ver_cursos_matriculados(self):
-        return self.mi_cursos    
     
 class Profesor(Usuario):
     def __init__(self, nombre, apellido, email, contrasenia, titulo, anio_egreso):
@@ -82,11 +83,11 @@ alumnos = []
 
 
 
-profesor = Profesor("Dario", "Martinez", "martinesdario@gmail.com", "dariomartinez", "ingeniero", 1987)
+profesor = Profesor("Dario", "Martinez", "martinesdario@gmail.com", "a", "ingeniero", 1987)
 profesores.append(profesor)
 
 
-alumno = Estudiante("Lucas", "Blondel", "blondel@gmail.com", "lblondel123", 498453, 2023)
+alumno = Estudiante("Lucas", "Blondel", "blondel@gmail.com", "s", 498453, 2023)
 alumnos.append(alumno)
 
 
