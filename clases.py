@@ -82,12 +82,15 @@ profesores = []
 alumnos = []
 
 
+#No sabemos por que pero la contraseña se guarda en el lugar del email y la contraseña....
+profesor = Profesor("Catalina", "Lopez", "catlopez@gmail.com", "cataLo96", "Ingeniera", 1996)
+profesores.append(profesor)
 
-profesor = Profesor("Dario", "Martinez", "martinesdario@gmail.com", "a", "ingeniero", 1987)
+profesor = Profesor("Dario", "Martinez", "martinesdario@gmail.com", "martinezD87", "ingeniero", 1987)
 profesores.append(profesor)
 
 
-alumno = Estudiante("Lucas", "Blondel", "blondel@gmail.com", "s", 498453, 2023)
+alumno = Estudiante("Lucas", "Blondel", "blondel@gmail.com", "lblondel123", 498453, 2023)
 alumnos.append(alumno)
 
 

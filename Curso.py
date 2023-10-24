@@ -29,10 +29,3 @@ class Curso:
     
 
 cursos_totales = []
-
-curso = Curso("Programacion 1")
-cursos_totales.append(curso)
-curso = Curso("Programacion 2")
-cursos_totales.append(curso)
-curso= Curso("Ingles 1")
-cursos_totales.append(curso)

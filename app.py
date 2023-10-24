@@ -24,6 +24,7 @@ while True:
         if bandera:
             indice -= 1
             opcion_Dos = 0
+            print("Alumno inicio sesion correctamente!")
             while opcion_Dos !=3 :
                 print("1- Matricularse a un curso.")
                 print("2- Ver cursos.")
@@ -58,7 +59,7 @@ while True:
                     print("seleccione una opcion valida")
         
         else:
-            print("Opción Inválida. Intente Nuevamente.")
+            print("Email de alumno inexsistente. Debe darse de alta en alumnado.")
 
     elif opcion == 2:
         mail = input("Ingrese su Email: ")
@@ -73,6 +74,7 @@ while True:
         if bandera:
             indice -= 1
             opcion_Dos = 0
+            print("Profesor inicio sesion correctamente!")
             while opcion_Dos !=3:
                 print("1- Dictar curso.")
                 print("2- Ver cursos.")
@@ -103,12 +105,19 @@ while True:
                     print(f"Nombre: {profesores[indice].mis_cursos[curso_selec].nombre}\nContraseña: {profesores[indice].mis_cursos[curso_selec].contrasenia_matriculacion}")
 
         else:
-            print("Opción Inválida. Intente Nuevamente.")
+            print("Email de profesor inexsistente. Debe darse de alta en alumnado.")
 
     elif opcion == 3:
+        cursos_ordenados = []
         if cursos_totales:
             for cursos in cursos_totales:
-                print(f"Materia: {cursos.nombre} Carrera: Tecnicatura Universitaria en Programación")
+                cursos_ordenados.append(cursos.nombre)
+            
+            cursos_ordenados = sorted(cursos_ordenados)
+
+            for cursos in cursos_ordenados:
+                print(f"Materia: {cursos} Carrera: Tecnicatura Universitaria en Programación")
+
         else:
             print("Aun no hay cursos ingresados")
 
