@@ -1,10 +1,11 @@
-from Usuario import Usuario
-from Curso import *
-from carrera import Carrera
+import Usuario
+import string
+import random
+import Curso 
 
 class Estudiante(Usuario):
-    def __init__(self, nombre, apellido, email, contrasenia, legajo, anio_incripcion, carrera: Carrera):
-        super().__init__(nombre, apellido, email, contrasenia)
+    def __init__(self, nombre, apellido, email, contrasenia, legajo, anio_incripcion):
+        super.__init__(self, nombre, apellido, email, contrasenia)
         self.__legajo = legajo
         self.__anio_inscripcion = anio_incripcion
         self.mis_cursos = []
@@ -96,8 +97,7 @@ alumno = Estudiante("Lucas", "Blondel", "blondel@gmail.com", "lblondel123", 4984
 alumnos.append(alumno)
 
 
-alumno = Estudiante("Matias", "Gimenez", "matigimenez@gmail.com", "maticrack1234", 98564, 2023)
-alumnos.append(alumno)
-
+alumno2 = Estudiante("Matias", "Gimenez", "matigimenez@gmail.com", "maticrack1234", 98564, 2023)
+alumnos.append(alumno2)
 
 

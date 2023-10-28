@@ -5,7 +5,7 @@ from carrera import Carrera
 
 
 class Curso:
-    def __init__(self, nombre, carrera: Carrera):
+    def __init__(self, nombre, contrasenia_matriculacion):
         self.__nombre = nombre
         self.__contrasenia_matriculacion = self.__generador_contrasenia()
         self.__archivos = []
@@ -28,13 +28,7 @@ class Curso:
 
     @staticmethod
     def __generador_contrasenia() -> str:
-        longitud = 8
-        caracteres = string.ascii_letters + string.digits
-        return "".join(random.choices(caracteres, k=longitud))
+        longitud = 6
+        caracteres = string.letras_ascii + string.digitos
+        return ''.join(random.choices(caracteres, k=longitud))
     
-    def archivo(self, archivo: Archivo):
-        self.__archivos.append(archivo)
-    
-        
-
-cursos_totales = []
