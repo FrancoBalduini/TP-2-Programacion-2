@@ -1,10 +1,10 @@
 import Usuario
-import string
-import random
-import Curso 
+from Curso import *
+from carrera import Carrera
+from archivo import Archivo
 
 class Estudiante(Usuario):
-    def __init__(self, nombre, apellido, email, contrasenia, legajo, anio_incripcion):
+    def __init__(self, nombre, apellido, email, contrasenia, legajo, anio_incripcion, carrera: Carrera):
         super.__init__(self, nombre, apellido, email, contrasenia)
         self.__legajo = legajo
         self.__anio_inscripcion = anio_incripcion
@@ -41,6 +41,9 @@ class Estudiante(Usuario):
         else:
             print("Contraseña de curso incorrecta.")
             return False
+
+    def desmatricularse_de_curso(self):
+        pass 
 
     
 class Profesor(Usuario):
