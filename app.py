@@ -129,7 +129,7 @@ while True:
                         print(f"{i} {carrera.nombre}")
                     carrera_selec = int(input("Seleccione la carrera en la cual desea dictar el curso: "))
                     carrera_selec -= 1
-                    curso = Curso(str(input("Ingrese el nombre del nuevo curso: ")))
+                    curso = Curso(str(input("Ingrese el nombre del nuevo curso: ")), carreras_totales[carrera_selec])
                     carreras_totales[carrera_selec].agr_curso(curso)
                     cursos_totales.append(curso)
                     profesores[indice].mis_cursos.append(curso)
@@ -164,13 +164,10 @@ while True:
     elif opcion == 3:
         cursos_ordenados = []
         if cursos_totales:
-            for cursos in cursos_totales:
-                cursos_ordenados.append(cursos.nombre)
-            
-            cursos_ordenados = sorted(cursos_ordenados)
-
+            cursos_ordenados = sorted(cursos_totales, key=lambda nombres: nombres.nombre)
+        
             for cursos in cursos_ordenados:
-                print(f"Materia: {cursos} Carrera: Tecnicatura Universitaria en Programación")
+                print(f"Materia: {cursos.nombre} Carrera: {cursos.carrera.nombre}")
 
         else:
             print("Aun no hay cursos ingresados")

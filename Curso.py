@@ -4,10 +4,12 @@ from archivo import Archivo
 
 
 class Curso:
-    def __init__(self, nombre):
+    def __init__(self, nombre, carrera):
         self.__nombre = nombre
         self.__contrasenia_matriculacion = self.__generador_contrasenia()
         self.archivos = []
+        self.carrera = carrera
+    #Le asignamos la carrera para poder mostrarla en la opcion 3
     
 
     def __str__(self):
