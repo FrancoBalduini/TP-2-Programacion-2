@@ -4,10 +4,13 @@ from archivo import Archivo
 
 
 class Curso:
+    prox_codigo = 0
     def __init__(self, nombre, carrera):
+        Curso.prox_codigo += 1
         self.__nombre = nombre
         self.__contrasenia_matriculacion = self.__generador_contrasenia()
         self.archivos = []
+        self.__codigo = Curso.prox_codigo
         self.carrera = carrera
     #Le asignamos la carrera para poder mostrarla en la opcion 3
     
@@ -26,6 +29,10 @@ class Curso:
     @property
     def contrasenia_matriculacion(self):
         return self.__contrasenia_matriculacion
+    
+    @property
+    def codigo(self):
+        return self.__codigo
 
     @staticmethod
     def __generador_contrasenia() -> str:

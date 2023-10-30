@@ -40,6 +40,9 @@ while True:
                     i = 0
                     
                     if alumnos[indice].carrera.cursos:
+                        cursos_ordenados = []
+                        cursos_ordenados = sorted(alumnos[indice].carrera.cursos, key=lambda codigo: codigo.codigo)
+
                         for curso in alumnos[indice].carrera.cursos:
                             i += 1
                             print(f"{i} {curso.nombre}")
@@ -133,7 +136,7 @@ while True:
                     carreras_totales[carrera_selec].agr_curso(curso)
                     cursos_totales.append(curso)
                     profesores[indice].mis_cursos.append(curso)
-                    print(f"Nombre: {curso.nombre} \nContraseña: {curso.contrasenia_matriculacion}")
+                    print(f"Nombre: {curso.nombre}\nCodigo: {curso.codigo}\nContraseña: {curso.contrasenia_matriculacion}")
                 elif opcion_Dos == 2:
                     i = 0
 
@@ -149,7 +152,7 @@ while True:
                         else:
                             print("Ingrese una opcion correcta")
                     curso_selec -= 1
-                    print(f"Nombre: {profesores[indice].mis_cursos[curso_selec].nombre}\nContraseña: {profesores[indice].mis_cursos[curso_selec].contrasenia_matriculacion}\nCantidad de archivos: {len(profesores[indice].mis_cursos[curso_selec].archivos)}")
+                    print(f"Nombre: {profesores[indice].mis_cursos[curso_selec].nombre}\nCodigo: {profesores[indice].mis_cursos[curso_selec].codigo}\nContraseña: {profesores[indice].mis_cursos[curso_selec].contrasenia_matriculacion}\nCantidad de archivos: {len(profesores[indice].mis_cursos[curso_selec].archivos)}")
                     opc = input("Desea adjuntar un archivo? (Ingrese S/N): ")
                     if opc == "S":
                         nombre_archivo = input("Ingrese el nombre del archivo: ")
