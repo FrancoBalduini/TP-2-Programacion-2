@@ -1,19 +1,17 @@
 import random
 import string
 from archivo import Archivo
-from carrera import Carrera
 
 
 class Curso:
-    def __init__(self, nombre, carrera: Carrera):
+    def __init__(self, nombre):
         self.__nombre = nombre
         self.__contrasenia_matriculacion = self.__generador_contrasenia()
-        self.__archivos = []
-        self.__carrera = carrera
+        self.archivos = []
     
 
     def __str__(self):
-        return (f"Nombre: {self.__nombre}\nContraseña: {self.__contrasenia_matriculacion}\nArchivos: {self.__archivos}\nCarrera: {self.__carrera}")    
+        return (f"Nombre: {self.__nombre}\nContraseña: {self.__contrasenia_matriculacion}\nArchivos: {self.archivos}\n")    
     
     @property
     def nombre(self):
@@ -34,7 +32,7 @@ class Curso:
         return "".join(random.choices(caracteres, k=longitud))
     
     def archivo(self, archivo: Archivo):
-        self.__archivos.append(archivo)
+        self.archivos.append(archivo)
     
 
 cursos_totales = []

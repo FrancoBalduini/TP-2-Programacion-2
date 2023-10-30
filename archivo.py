@@ -20,3 +20,7 @@ class Archivo:
     @property
     def formato(self):
         return self.__formato    
+    
+    @formato.setter
+    def formato(self, formato_cambiado):
+        self.__formato = formato_cambiado
